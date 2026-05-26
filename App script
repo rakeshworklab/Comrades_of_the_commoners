@@ -1,0 +1,58 @@
+const FOLDER_ID = 'PASTE_GOOGLE_DRIVE_FOLDER_ID';
+
+function doPost(e) {
+
+  const sheet =
+    SpreadsheetApp
+    .getActiveSpreadsheet()
+    .getSheetByName("Sheet1");
+
+  const data =
+    JSON.parse(e.postData.contents);
+
+  let imageUrl = '';
+
+  // UPLOAD IMAGE
+  if (data.photoBase64) {
+
+    const folder =
+      DriveApp.getFolderById(FOLDER_ID);
+
+    const imageData =
+      data.photoBase64.split(',')[1];
+
+    const blob =
+      Utilities.newBlob(
+        Utilities.base64Decode(imageData),
+        'image/png',
+        `${data.name}_${Date.now()}.png`
+      );
+
+    const file =
+      folder.createFile(blob);
+
+    file.setSharing(
+      DriveApp.Access.ANYONE_WITH_LINK,
+      DriveApp.Permission.VIEW
+    );
+
+    imageUrl =
+      file.getUrl();
+  }
+
+  // SAVE TO SHEET
+  sheet.appendRow([
+    data.name,
+    data.designation,
+    data.age,
+    data.gender,
+    data.bloodGroup,
+    data.mobile,
+    data.joinedAt,
+    imageUrl
+  ]);
+
+  return ContentService
+    .createTextOutput("Success")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
