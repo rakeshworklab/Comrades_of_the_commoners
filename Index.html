@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comrades of the Commoners</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .poster-img {
+      transition: 0.3s ease;
+    }
+
+    .poster-img:hover {
+      transform: scale(1.03);
+    }
+
+    .id-card {
+      width: 340px;
+      background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+      color: white;
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- HEADER -->
+  <header id="home" class="bg-red-900 text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+
+      <a href="#home" class="flex items-center gap-4">
+        <img src="1000197021.jpg"
+             class="w-16 h-16 rounded-full bg-white p-1 cursor-pointer"
+             alt="Logo">
+
+        <div>
+          <h1 class="text-2xl font-bold uppercase">
+            Comrades of the Commoners
+          </h1>
+
+          <p class="text-sm text-red-200">
+            Transparent Governance • Sustainable Villages
+          </p>
+        </div>
+      </a>
+
+      <!-- WHATSAPP -->
+      <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK"
+         target="_blank"
+         class="bg-green-500 px-5 py-2 rounded-full font-bold hover:bg-green-400">
+         Join WhatsApp Group
+      </a>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-r from-red-900 to-red-700 text-white py-24 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+
+      <h2 class="text-5xl font-extrabold mb-6">
+        Our Village • Our Responsibility • Our Future
+      </h2>
+
+      <p class="text-xl leading-relaxed">
+        We stand for transparency, accountability,
+        women safety, sustainable development,
+        digital villages, and youth empowerment.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="max-w-7xl mx-auto py-16 px-6">
+
+    <h2 class="text-4xl font-bold text-center text-red-900 mb-12">
+      Our Manifesto
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-2xl shadow-lg p-6">
+        <h3 class="text-2xl font-bold text-red-800 mb-3">
+          Transparency
+        </h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Public funds dashboard</li>
+          <li>Transparent repair bills</li>
+          <li>Public Gram Sabha audits</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg p-6">
+        <h3 class="text-2xl font-bold text-red-800 mb-3">
+          Smart Infrastructure
+        </h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Solar street lights</li>
+          <li>Regular water supply</li>
+          <li>Drainage maintenance</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg p-6">
+        <h3 class="text-2xl font-bold text-red-800 mb-3">
+          Digital Village
+        </h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Public WiFi</li>
+          <li>E-library & printers</li>
+          <li>Women safety CCTV</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- POSTERS -->
+  <section class="bg-white py-16 px-6">
+
+    <div class="max-w-7xl mx-auto">
+
+      <h2 class="text-4xl font-bold text-center text-red-900 mb-12">
+        Campaign Posters
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <img src="poster1.jpg"
+             class="rounded-2xl shadow-lg poster-img h-72 w-full object-cover">
+
+        <img src="poster2.jpg"
+             class="rounded-2xl shadow-lg poster-img h-72 w-full object-cover">
+
+        <img src="poster3.jpg"
+             class="rounded-2xl shadow-lg poster-img h-72 w-full object-cover">
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VOLUNTEER -->
+  <section class="bg-red-900 text-white py-16 px-6">
+
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10">
+
+      <!-- FORM -->
+      <div>
+
+        <h2 class="text-4xl font-bold mb-8">
+          Volunteer Registration
+        </h2>
+
+        <div class="space-y-4">
+
+          <input id="name"
+                 type="text"
+                 placeholder="Full Name"
+                 class="w-full p-3 rounded text-black">
+
+          <input id="designation"
+                 type="text"
+                 value="Comrade"
+                 class="w-full p-3 rounded text-black">
+
+          <input id="age"
+                 type="number"
+                 placeholder="Age"
+                 class="w-full p-3 rounded text-black">
+
+          <select id="gender"
+                  class="w-full p-3 rounded text-black">
+
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+
+          </select>
+
+          <input id="blood"
+                 type="text"
+                 placeholder="Blood Group"
+                 class="w-full p-3 rounded text-black">
+
+          <input id="mobile"
+                 type="tel"
+                 placeholder="Mobile Number"
+                 class="w-full p-3 rounded text-black">
+
+          <input id="photo"
+                 type="file"
+                 accept="image/*"
+                 class="w-full p-3 rounded bg-white text-black">
+
+          <button onclick="generateID()"
+                  class="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-300">
+
+            Generate Volunteer ID
+
+          </button>
+
+        </div>
+      </div>
+
+      <!-- ID CARD -->
+      <div class="flex justify-center items-start">
+
+        <div id="idCard" class="id-card hidden">
+
+          <div class="flex items-center gap-4 mb-4">
+
+            <img src="1000197021.jpg"
+                 class="w-16 h-16 rounded-full bg-white p-1">
+
+            <div>
+              <h3 class="font-bold text-xl uppercase">
+                Comrades of the Commoners
+              </h3>
+
+              <p class="text-sm">
+                Volunteer ID Card
+              </p>
+            </div>
+
+          </div>
+
+          <div class="flex gap-4">
+
+            <img id="previewPhoto"
+                 class="w-24 h-24 rounded-lg object-cover border-2 border-white">
+
+            <div class="space-y-2 text-sm">
+
+              <p><strong>Name:</strong> <span id="cardName"></span></p>
+              <p><strong>Designation:</strong> <span id="cardDesignation"></span></p>
+              <p><strong>Age:</strong> <span id="cardAge"></span></p>
+              <p><strong>Gender:</strong> <span id="cardGender"></span></p>
+              <p><strong>Blood Group:</strong> <span id="cardBlood"></span></p>
+              <p><strong>Mobile:</strong> <span id="cardMobile"></span></p>
+
+            </div>
+
+          </div>
+
+          <button onclick="downloadID()"
+                  class="mt-6 bg-white text-red-800 w-full py-2 rounded-full font-bold">
+
+            Download ID Card
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-white text-center py-8">
+
+    <h3 class="text-2xl font-bold uppercase">
+      Comrades of the Commoners
+    </h3>
+
+    <p class="text-gray-400 mt-2">
+      Development with Transparency & Accountability
+    </p>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    // PASTE YOUR GOOGLE APPS SCRIPT URL
+    const GOOGLE_SCRIPT_URL =
+      'PASTE_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+    // SAVE TO GOOGLE SHEETS
+    async function saveVolunteer(data) {
+
+      try {
+
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+      } catch (error) {
+
+        console.error(error);
+
+      }
+
+    }
+
+    // GENERATE ID
+    async function generateID() {
+
+      document.getElementById('idCard')
+              .classList.remove('hidden');
+
+      const volunteerData = {
+
+        name:
+          document.getElementById('name').value,
+
+        designation:
+          document.getElementById('designation').value,
+
+        age:
+          document.getElementById('age').value,
+
+        gender:
+          document.getElementById('gender').value,
+
+        bloodGroup:
+          document.getElementById('blood').value,
+
+        mobile:
+          document.getElementById('mobile').value,
+
+        joinedAt:
+          new Date().toISOString()
+
+      };
+
+      document.getElementById('cardName').innerText =
+        volunteerData.name;
+
+      document.getElementById('cardDesignation').innerText =
+        volunteerData.designation;
+
+      document.getElementById('cardAge').innerText =
+        volunteerData.age;
+
+      document.getElementById('cardGender').innerText =
+        volunteerData.gender;
+
+      document.getElementById('cardBlood').innerText =
+        volunteerData.bloodGroup;
+
+      document.getElementById('cardMobile').innerText =
+        volunteerData.mobile;
+
+      const photoInput =
+        document.getElementById('photo');
+
+      const previewPhoto =
+        document.getElementById('previewPhoto');
+
+      if (photoInput.files[0]) {
+
+        const reader = new FileReader();
+
+        reader.onload = async function(e) {
+
+          previewPhoto.src = e.target.result;
+
+          volunteerData.photoBase64 =
+            e.target.result;
+
+          await saveVolunteer(volunteerData);
+
+        }
+
+        reader.readAsDataURL(photoInput.files[0]);
+
+      } else {
+
+        previewPhoto.src =
+          'https://cdn-icons-png.flaticon.com/512/149/149071.png';
+
+        await saveVolunteer(volunteerData);
+
+      }
+
+    }
+
+    // DOWNLOAD ID
+    function downloadID() {
+
+      html2canvas(document.getElementById('idCard'))
+        .then(canvas => {
+
+          const link =
+            document.createElement('a');
+
+          link.download =
+            'Volunteer_ID.png';
+
+          link.href =
+            canvas.toDataURL();
+
+          link.click();
+
+        });
+
+    }
+
+  </script>
+
+</body>
+</html>
