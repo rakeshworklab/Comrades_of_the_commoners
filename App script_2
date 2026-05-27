@@ -1,0 +1,154 @@
+const FOLDER_ID = 'PASTE_GOOGLE_DRIVE_FOLDER_ID';
+
+function doPost(e) {
+
+  if (!e || !e.postData) {
+
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        success: false,
+        error: 'No POST data received'
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  }
+
+  try {
+
+    const data =
+      JSON.parse(e.postData.contents);
+
+    const ss =
+      SpreadsheetApp.getActiveSpreadsheet();
+
+    const type =
+      data.recordType || 'volunteer';
+
+    // SUGGESTIONS
+
+    if(type === 'suggestion') {
+
+      const suggestionSheet =
+        ss.getSheetByName('Suggestions')
+        || ss.insertSheet('Suggestions');
+
+      if(suggestionSheet.getLastRow() === 0){
+
+        suggestionSheet.appendRow([
+          'Name',
+          'Mobile',
+          'Village',
+          'Category',
+          'Suggestion',
+          'Submitted At'
+        ]);
+
+      }
+
+      suggestionSheet.appendRow([
+
+        data.name || '',
+        data.mobile || '',
+        data.village || '',
+        data.category || '',
+        data.suggestion || '',
+        data.submittedAt || ''
+
+      ]);
+
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          success: true
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+
+    }
+
+    // VOLUNTEERS
+
+    const volunteerSheet =
+      ss.getSheetByName('Sheet1')
+      || ss.insertSheet('Sheet1');
+
+    if(volunteerSheet.getLastRow() === 0){
+
+      volunteerSheet.appendRow([
+
+        'Name',
+        'Designation',
+        'Age',
+        'Gender',
+        'Blood Group',
+        'Mobile',
+        'Location',
+        'Joined At',
+        'Photo Link'
+
+      ]);
+
+    }
+
+    let imageUrl = '';
+
+    // IMAGE UPLOAD
+
+    if(data.photoBase64){
+
+      const folder =
+        DriveApp.getFolderById(FOLDER_ID);
+
+      const imageData =
+        data.photoBase64.split(',')[1];
+
+      const blob =
+        Utilities.newBlob(
+          Utilities.base64Decode(imageData),
+          'image/png',
+          `${data.name}_${Date.now()}.png`
+        );
+
+      const file =
+        folder.createFile(blob);
+
+      file.setSharing(
+        DriveApp.Access.ANYONE_WITH_LINK,
+        DriveApp.Permission.VIEW
+      );
+
+      imageUrl =
+        file.getUrl();
+
+    }
+
+    volunteerSheet.appendRow([
+
+      data.name || '',
+      data.designation || '',
+      data.age || '',
+      data.gender || '',
+      data.bloodGroup || '',
+      data.mobile || '',
+      data.location || '',
+      data.joinedAt || '',
+      imageUrl
+
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        success: true
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch(error) {
+
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        success: false,
+        error: error.toString()
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  }
+
+}
