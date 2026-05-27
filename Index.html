@@ -47,10 +47,10 @@ box-shadow:0 10px 40px rgba(0,0,0,.25);
 
 .hero-section{
 position:relative;
-min-height:760px;
+min-height:560px;
 background:
-linear-gradient(rgba(255,245,235,.88),rgba(255,245,235,.9)),
-url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1800&auto=format&fit=crop');
+linear-gradient(rgba(255,245,235,.78),rgba(255,245,235,.82)),
+url('./floating_flag.png');
 background-size:cover;
 background-position:center;
 overflow:hidden;
@@ -99,9 +99,9 @@ border:2px solid white;
 color:white;
 }
 
-.yellow-btn{
-background:#ffbe0b;
-color:black;
+.yellow-btn:hover{
+background:#ffd000;
+transform:translateY(-4px);
 }
 
 .social-icon{
@@ -137,16 +137,27 @@ transform:translateY(-8px);
 }
 
 .red-panel{
-background:linear-gradient(135deg,#a00000,#d10000,#a00000);
-box-shadow:0 15px 40px rgba(0,0,0,.18);
+background:
+linear-gradient(135deg,#9f0000,#d10000,#7c0000);
+border-radius:26px;
+box-shadow:
+0 20px 50px rgba(0,0,0,.25),
+inset 0 0 30px rgba(255,255,255,.08);
 }
 
 .id-card{
 background:
 linear-gradient(rgba(120,0,0,.82),rgba(120,0,0,.82)),
-url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1800&auto=format&fit=crop');
+url('./IMG-20260527-WA0001.jpg');
+
 background-size:cover;
 background-position:center;
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.4);
+
 }
 
 input,textarea,select{
@@ -213,7 +224,7 @@ Together We Rise
 
 <!-- NAV -->
 
-<div class="flex flex-wrap justify-center gap-5">
+<div class="flex flex-wrap justify-center gap-2">
 
 <a href="#manifesto" class="nav-btn white-btn">
 View Manifesto
@@ -237,11 +248,15 @@ Suggestions
 Follow Us:
 </p>
 
-<a href="#" class="social-icon bg-green-500 text-white">
+<a href="https://chat.whatsapp.com/YOUR_LINK"
+target="_blank"
+class="social-icon bg-green-500 text-white">
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<a href="#" class="social-icon bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-400 text-white">
+<a href="https://instagram.com/YOUR_USERNAME"
+target="_blank"
+class="social-icon bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-400 text-white">
 <i class="fab fa-instagram"></i>
 </a>
 
@@ -259,7 +274,7 @@ Follow Us:
 
 <!-- FLOATING FLAG -->
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Red_flag_waving.svg/1200px-Red_flag_waving.svg.png"
+<img src="./IMG-20260527-WA0001.jpg"
 class="floating-flag">
 
 <div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
@@ -270,14 +285,18 @@ class="floating-flag">
 
 <div>
 
-<h1 class="hero-title text-[130px] leading-[0.88] text-red-700 font-bold">
+<h1 class="hero-title text-[80px] leading-[0.88] text-red-500 font-bold">
 TOGETHER
 <br>
 WE RISE
 </h1>
 
 <p class="text-4xl mt-8 font-medium text-black">
-For Equality. For Justice. For Everyone.
+Let us set aside our political differences and 
+come together as one united community to work for the development of our village.
+
+మన రాజకీయ సిద్ధాంత విభేదాలు పక్కన పెట్టి,
+మన గ్రామ అభివృద్ధి కోసం ఏకమవుదాం.
 </p>
 
 <div class="flex flex-wrap gap-10 mt-12">
@@ -329,7 +348,7 @@ For Equality. For Justice. For Everyone.
 <div class="stat-box p-8 flex items-center gap-5">
 <i class="fas fa-user-group text-5xl"></i>
 <div>
-<h3 class="text-5xl font-bold">500+</h3>
+<h3 class="text-5xl font-bold">+</h3>
 <p class="text-xl">Active Volunteers</p>
 </div>
 </div>
@@ -337,7 +356,7 @@ For Equality. For Justice. For Everyone.
 <div class="stat-box p-8 flex items-center gap-5">
 <i class="fas fa-file-lines text-5xl"></i>
 <div>
-<h3 class="text-5xl font-bold">15+</h3>
+<h3 class="text-3xl font-bold">15+</h3>
 <p class="text-xl">Development Agendas</p>
 </div>
 </div>
@@ -376,7 +395,7 @@ For Equality. For Justice. For Everyone.
 OUR MANIFESTO
 </h2>
 
-<div class="grid grid-cols-3 gap-8 text-center">
+<div class="grid grid-cols-3 gap-y-10 gap-x-6 text-center">
 
 <div class="manifest-card">
 <i class="fas fa-scale-balanced text-5xl text-red-700"></i>
@@ -404,10 +423,43 @@ OUR MANIFESTO
 </div>
 
 <div class="manifest-card">
+<i class="fas fa-faucet text-5xl text-red-700"></i>
+<p class="font-semibold mt-4">Regular Water Supply</p>
+</div>
+
+<div class="manifest-card">
+<i class="fas fa-gears text-5xl text-red-700"></i>
+<p class="font-semibold mt-4">Pump Repair Transparency</p>
+</div>
+
+<div class="manifest-card">
+<i class="fas fa-recycle text-5xl text-red-700"></i>
+<p class="font-semibold mt-4">Waste Management</p>
+</div>
+
+<div class="manifest-card">
+<i class="fas fa-tree-city text-5xl text-red-700"></i>
+<p class="font-semibold mt-4">Parks & Open Gym</p>
+</div>
+
+<div class="manifest-card">
 <i class="fas fa-wifi text-5xl text-red-700"></i>
 <p class="font-semibold mt-4">Public WiFi & E-Library</p>
 </div>
 
+<div class="manifest-card">
+<i class="fas fa-video text-5xl text-red-700"></i>
+<p class="font-semibold mt-4">Women Safety CCTV</p>
+</div>
+
+<div class="manifest-card">
+<i class="fas fa-camera text-5xl text-red-700"></i>
+<p class="font-semibold mt-4">Speed Detection Cameras</p>
+</div>
+
+<div class="manifest-card">
+<i class="fas fa-display text-5xl text-red-700"></i>
+<p class="font-semibold mt-4">Digital Transparency Dashboard</p>
 </div>
 
 </div>
