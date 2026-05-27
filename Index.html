@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Comrades of the Commoners</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all .8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .manifest-card {
+
+      transition:
+      transform .35s ease,
+      box-shadow .35s ease,
+      border .35s ease;
+
+      border: 1px solid rgba(255,255,255,.2);
+
+      background:
+      rgba(255,255,255,.85);
+
+      backdrop-filter: blur(10px);
+
+    }
+
+    .manifest-card:hover {
+
+      transform:
+      translateY(-10px)
+      scale(1.02);
+
+      box-shadow:
+      0 25px 45px rgba(185,28,28,.18);
+
+      border:
+      1px solid rgba(185,28,28,.18);
+
+    }
+
+    .poster-img {
+      transition: .35s ease;
+    }
+
+    .poster-img:hover {
+      transform: scale(1.03);
+    }
+
+    .id-card {
+
+      width: 370px;
+
+      min-height: 480px;
+
+      background:
+      linear-gradient(
+      135deg,
+      #7f1d1d,
+      #b91c1c,
+      #dc2626
+      );
+
+      color: white;
+
+      border-radius: 28px;
+
+      padding: 24px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      box-shadow:
+      0 25px 50px rgba(0,0,0,.28);
+
+      border:
+      1px solid rgba(255,255,255,.15);
+
+      backdrop-filter:
+      blur(12px);
+
+    }
+
+    .id-card::before {
+
+      content: '';
+
+      position: absolute;
+
+      inset: 0;
+
+      background-image: url('1000197021.jpg');
+
+      background-repeat: no-repeat;
+
+      background-position: center;
+
+      background-size: 70%;
+
+      opacity: .08;
+
+      transform: rotate(-12deg);
+
+    }
+
+    .id-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    button {
+      transition: all .3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-bg {
+
+      background:
+      linear-gradient(
+      135deg,
+      #7f1d1d,
+      #991b1b,
+      #dc2626
+      );
+
+    }
+
+  </style>
+
+</head>
+
+<body class="bg-gradient-to-br from-slate-50 via-red-50 to-slate-100 text-slate-800">
+
+<!-- FLOATING BACKGROUND -->
+
+<div class="fixed inset-0 -z-10 overflow-hidden">
+
+  <div class="absolute top-0 left-0 w-96 h-96 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+
+  <div class="absolute top-40 right-0 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+
+  <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+
+</div>
+
+<!-- HEADER -->
+
+<header id="home"
+class="sticky top-0 z-50 bg-red-950 text-white shadow-lg">
+
+  <div class="max-w-7xl mx-auto px-4 py-4">
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+
+      <a href="#home"
+      class="flex items-center gap-4">
+
+      <img src="1000197021.jpg"
+      class="w-16 h-16 rounded-full bg-white p-1">
+
+      <div>
+
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase">
+          Comrades of the Commoners
+        </h1>
+
+        <p class="text-red-200 text-sm">
+          Transparent Governance • Sustainable Villages
+        </p>
+
+      </div>
+
+    </a>
+
+    <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK"
+    target="_blank"
+    class="bg-green-500 px-5 py-3 rounded-full font-bold hover:bg-green-400">
+
+    Join WhatsApp Group
+
+  </a>
+
+</div>
+
+<div class="glass rounded-2xl mt-4 p-4 text-center">
+
+  <p class="font-semibold">
+
+    Let's put aside our political ideology differences
+    and unite together for our Village development.
+
+  </p>
+
+  <p class="mt-2 text-red-100">
+
+    మన రాజకీయ సిద్ధాంత భేదాలను పక్కన పెట్టి,
+    మన గ్రామ అభివృద్ధి కోసం ఏకమవుదాం.
+
+  </p>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero-bg text-white px-6 py-28 relative overflow-hidden">
+
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+
+    <div class="fade-up">
+
+      <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
+
+        Our Village <br>
+        Our Responsibility <br>
+        Our Future
+
+      </h2>
+
+      <p class="mt-6 text-xl text-red-100 leading-relaxed">
+
+        A public awareness movement for
+        transparency, accountability,
+        digital villages, sustainability,
+        and youth-driven development.
+
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+
+        <a href="#manifesto"
+        class="bg-white text-red-900 px-6 py-3 rounded-full font-bold">
+
+        View Manifesto
+
+      </a>
+
+      <a href="#volunteer"
+      class="border border-white px-6 py-3 rounded-full font-bold">
+
+      Become Volunteer
+
+    </a>
+
+  </div>
+
+</div>
+
+<div class="grid grid-cols-2 gap-4 fade-up">
+
+  <div class="glass rounded-3xl p-6">
+
+    <h3 class="text-4xl font-black">15+</h3>
+
+    <p class="mt-2 text-red-100">
+      Development Agendas
+    </p>
+
+  </div>
+
+  <div class="glass rounded-3xl p-6">
+
+    <h3 class="text-4xl font-black">100%</h3>
+
+    <p class="mt-2 text-red-100">
+      Public Accountability
+    </p>
+
+  </div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MANIFESTO -->
+
+<section id="manifesto"
+class="max-w-7xl mx-auto py-20 px-6">
+
+<h2 class="text-5xl font-extrabold text-center text-red-950 mb-14 fade-up">
+
+  Our Manifesto
+
+</h2>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+  <!-- CARD -->
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Transparent Public Funds
+    </h3>
+    <p>
+      Public dashboard displaying funds received,
+      utilised, pending works and bills.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Solar Street Lights
+    </h3>
+    <p>
+      Solar-powered lighting systems for
+      cost-effective public infrastructure.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Solar Water Pumps
+    </h3>
+    <p>
+      Sustainable water pumping systems
+      with reduced maintenance dependency.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Drainage Maintenance
+    </h3>
+    <p>
+      Regular cleaning and desilting of
+      blocked drainage canals.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Regular Water Supply
+    </h3>
+    <p>
+      Transparent schedules and reliable
+      water distribution systems.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Pump Repair Transparency
+    </h3>
+    <p>
+      Public records for motor repairs,
+      spare parts and maintenance expenses.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Scientific Waste Management
+    </h3>
+    <p>
+      Waste segregation, recycling and
+      clean village initiatives.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Public Parks & Open Gym
+    </h3>
+    <p>
+      Walking lanes, outdoor fitness zones
+      and children play areas.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Public WiFi & E-Library
+    </h3>
+    <p>
+      Digital learning spaces and internet
+      access for youth and students.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Women Safety CCTV
+    </h3>
+    <p>
+      Surveillance systems for safer public
+      areas and streets.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Speed Detection Cameras
+    </h3>
+    <p>
+      Accident prevention and traffic
+      safety monitoring.
+    </p>
+  </div>
+
+  <div class="manifest-card rounded-3xl p-6 fade-up">
+    <h3 class="text-2xl font-bold text-red-800 mb-3">
+      Digital Transparency Dashboard
+    </h3>
+    <p>
+      Public project tracking and
+      accountability platform.
+    </p>
+  </div>
+
+</div>
+
+</section>
+
+<!-- SUGGESTIONS -->
+
+<section class="bg-white py-20 px-6">
+
+  <div class="max-w-5xl mx-auto">
+
+    <h2 class="text-4xl font-extrabold text-center text-red-950 mb-10 fade-up">
+
+      Public Development Suggestions
+
+    </h2>
+
+    <div class="bg-slate-50 rounded-3xl p-8 shadow-lg fade-up">
+
+      <div class="grid md:grid-cols-2 gap-4">
+
+        <input id="suggestionName"
+        type="text"
+        placeholder="Your Name"
+        class="p-4 rounded-xl border">
+
+        <input id="suggestionMobile"
+        type="text"
+        placeholder="Mobile Number"
+        class="p-4 rounded-xl border">
+
+      </div>
+
+      <input id="suggestionVillage"
+      type="text"
+      placeholder="Village / Area"
+      class="w-full mt-4 p-4 rounded-xl border">
+
+      <select id="suggestionCategory"
+      class="w-full mt-4 p-4 rounded-xl border">
+
+      <option>Water Supply</option>
+      <option>Roads</option>
+      <option>Drainage</option>
+      <option>Street Lights</option>
+      <option>Sanitation</option>
+      <option>Safety</option>
+      <option>Other</option>
+
+    </select>
+
+    <textarea id="suggestionText"
+    rows="5"
+    placeholder="Write your suggestion..."
+    class="w-full mt-4 p-4 rounded-xl border"></textarea>
+
+    <button onclick="submitSuggestion()"
+    class="mt-6 bg-red-900 text-white px-8 py-3 rounded-full font-bold">
+
+    Submit Suggestion
+
+  </button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- VOLUNTEER -->
+
+<section id="volunteer"
+class="bg-red-950 text-white py-20 px-6">
+
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10">
+
+  <!-- FORM -->
+
+  <div class="fade-up">
+
+    <h2 class="text-5xl font-extrabold mb-10">
+
+      Volunteer Registration
+
+    </h2>
+
+    <div class="space-y-4 bg-white/10 p-8 rounded-3xl">
+
+      <input id="name"
+      type="text"
+      placeholder="Full Name"
+      class="w-full p-4 rounded-xl text-black">
+
+      <input id="designation"
+      type="text"
+      value="Comrade"
+      class="w-full p-4 rounded-xl text-black">
+
+      <input id="age"
+      type="number"
+      placeholder="Age"
+      class="w-full p-4 rounded-xl text-black">
+
+      <select id="gender"
+      class="w-full p-4 rounded-xl text-black">
+
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+
+    </select>
+
+    <input id="blood"
+    type="text"
+    placeholder="Blood Group"
+    class="w-full p-4 rounded-xl text-black">
+
+    <input id="mobile"
+    type="tel"
+    placeholder="Mobile Number"
+    class="w-full p-4 rounded-xl text-black">
+
+    <!-- LOCATION -->
+
+    <select id="location"
+    class="w-full p-4 rounded-xl text-black">
+
+    <option>
+      Chilamkur Panchayati,
+      Yerraguntla(M),
+      Kadapa(D),
+      Andhra Pradesh - 516310
+    </option>
+
+    <option>
+      Chirrajupalle Panchayati,
+      Yerraguntla(M),
+      Kadapa(D),
+      Andhra Pradesh - 516310
+    </option>
+
+  </select>
+
+  <input id="photo"
+  type="file"
+  accept="image/*"
+  class="w-full p-4 rounded-xl bg-white text-black">
+
+  <button onclick="generateID()"
+  class="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold">
+
+  Generate Volunteer ID
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ID CARD -->
+
+<div class="flex justify-center items-start fade-up">
+
+  <div id="idCard"
+  class="id-card hidden">
+
+  <div class="id-content">
+
+    <div class="flex items-center gap-4 mb-5">
+
+      <img src="1000197021.jpg"
+      class="w-16 h-16 rounded-full bg-white p-1">
+
+      <div>
+
+        <h3 class="font-bold text-xl uppercase">
+          Comrades of the Commoners
+        </h3>
+
+        <p class="text-sm">
+          Volunteer ID Card
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="flex gap-4">
+
+      <img id="previewPhoto"
+      class="w-24 h-24 rounded-2xl object-cover border-2 border-white">
+
+      <div class="space-y-2 text-sm leading-6">
+
+        <p><strong>Name:</strong> <span id="cardName"></span></p>
+
+        <p><strong>Designation:</strong> <span id="cardDesignation"></span></p>
+
+        <p><strong>Age:</strong> <span id="cardAge"></span></p>
+
+        <p><strong>Gender:</strong> <span id="cardGender"></span></p>
+
+        <p><strong>Blood Group:</strong> <span id="cardBlood"></span></p>
+
+        <p><strong>Mobile:</strong> <span id="cardMobile"></span></p>
+
+        <p><strong>Location:</strong> <span id="cardLocation"></span></p>
+
+      </div>
+
+    </div>
+
+    <button onclick="downloadID()"
+    class="mt-8 bg-white text-red-900 w-full py-3 rounded-full font-bold">
+
+    Download ID Card
+
+  </button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="bg-black text-white text-center py-10">
+
+  <h3 class="text-3xl font-extrabold uppercase">
+
+    Comrades of the Commoners
+
+  </h3>
+
+  <p class="text-gray-400 mt-3">
+
+    Development with Transparency & Accountability
+
+  </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+const GOOGLE_SCRIPT_URL =
+'PASTE_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+async function postToGoogleSheet(data) {
+
+  const response =
+  await fetch(GOOGLE_SCRIPT_URL, {
+
+    method: 'POST',
+
+    headers: {
+      'Content-Type': 'application/json'
+    },
+
+    body: JSON.stringify(data)
+
+  });
+
+  return response.text();
+
+}
+
+async function submitSuggestion() {
+
+  const data = {
+
+    recordType: 'suggestion',
+
+    name:
+    document.getElementById('suggestionName').value,
+
+    mobile:
+    document.getElementById('suggestionMobile').value,
+
+    village:
+    document.getElementById('suggestionVillage').value,
+
+    category:
+    document.getElementById('suggestionCategory').value,
+
+    suggestion:
+    document.getElementById('suggestionText').value,
+
+    submittedAt:
+    new Date().toISOString()
+
+  };
+
+  try {
+
+    await postToGoogleSheet(data);
+
+    alert('Suggestion submitted successfully');
+
+    document.getElementById('suggestionName').value = '';
+    document.getElementById('suggestionMobile').value = '';
+    document.getElementById('suggestionVillage').value = '';
+    document.getElementById('suggestionText').value = '';
+
+  } catch(error) {
+
+    alert('Error submitting suggestion');
+
+  }
+
+}
+
+async function generateID() {
+
+  document.getElementById('idCard')
+  .classList.remove('hidden');
+
+  const volunteerData = {
+
+    recordType: 'volunteer',
+
+    name:
+    document.getElementById('name').value,
+
+    designation:
+    document.getElementById('designation').value,
+
+    age:
+    document.getElementById('age').value,
+
+    gender:
+    document.getElementById('gender').value,
+
+    bloodGroup:
+    document.getElementById('blood').value,
+
+    mobile:
+    document.getElementById('mobile').value,
+
+    location:
+    document.getElementById('location').value,
+
+    joinedAt:
+    new Date().toISOString()
+
+  };
+
+  document.getElementById('cardName').innerText =
+  volunteerData.name;
+
+  document.getElementById('cardDesignation').innerText =
+  volunteerData.designation;
+
+  document.getElementById('cardAge').innerText =
+  volunteerData.age;
+
+  document.getElementById('cardGender').innerText =
+  volunteerData.gender;
+
+  document.getElementById('cardBlood').innerText =
+  volunteerData.bloodGroup;
+
+  document.getElementById('cardMobile').innerText =
+  volunteerData.mobile;
+
+  document.getElementById('cardLocation').innerText =
+  volunteerData.location;
+
+  const photoInput =
+  document.getElementById('photo');
+
+  const previewPhoto =
+  document.getElementById('previewPhoto');
+
+  if(photoInput.files[0]) {
+
+    const reader =
+    new FileReader();
+
+    reader.onload =
+    async function(e) {
+
+      previewPhoto.src =
+      e.target.result;
+
+      volunteerData.photoBase64 =
+      e.target.result;
+
+      await postToGoogleSheet(volunteerData);
+
+    }
+
+    reader.readAsDataURL(photoInput.files[0]);
+
+  } else {
+
+    previewPhoto.src =
+    'https://cdn-icons-png.flaticon.com/512/149/149071.png';
+
+    await postToGoogleSheet(volunteerData);
+
+  }
+
+}
+
+function downloadID() {
+
+  html2canvas(
+  document.getElementById('idCard')
+  ).then(canvas => {
+
+    const link =
+    document.createElement('a');
+
+    link.download =
+    'Volunteer_ID.png';
+
+    link.href =
+    canvas.toDataURL();
+
+    link.click();
+
+  });
+
+}
+
+const observer =
+new IntersectionObserver((entries)=>{
+
+  entries.forEach((entry)=>{
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add('show');
+
+    }
+
+  });
+
+});
+
+document.querySelectorAll('.fade-up')
+.forEach((el)=>observer.observe(el));
+
+</script>
+
+</body>
+</html>
