@@ -1,236 +1,265 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comrades Of The Commoners</title>
 
-  <title>Comrades of the Commoners</title>
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    html {
-      scroll-behavior: smooth;
-    }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-    body {
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-    }
+<style>
 
-    .glass {
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all .8s ease;
-    }
+html{
+scroll-behavior:smooth;
+}
 
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+body{
+font-family:'Poppins',sans-serif;
+background:#ffffff;
+overflow-x:hidden;
+}
 
-    .manifest-card {
+h1,h2,h3,h4{
+font-family:'Oswald',sans-serif;
+}
 
-      transition:
-      transform .35s ease,
-      box-shadow .35s ease,
-      border .35s ease;
+.top-header{
+background:linear-gradient(90deg,#760000,#a10000,#760000);
+box-shadow:0 10px 40px rgba(0,0,0,.25);
+}
 
-      border: 1px solid rgba(255,255,255,.2);
+.hero-section{
+position:relative;
+min-height:560px;
+background:
+linear-gradient(rgba(255,245,235,.78),rgba(255,245,235,.82)),
+url('./floating_flag.png');
+background-size:cover;
+background-position:center;
+overflow:hidden;
+}
 
-      background:
-      rgba(255,255,255,.85);
+.hero-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(155,0,0,.5),transparent);
+}
 
-      backdrop-filter: blur(10px);
+.floating-flag{
+position:absolute;
+right:7%;
+top:12%;
+width:420px;
+z-index:2;
+filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));
+animation:flagFloat 5s ease-in-out infinite;
+}
 
-    }
+@keyframes flagFloat{
+0%{transform:translateY(0px) rotate(-2deg)}
+50%{transform:translateY(-10px) rotate(2deg)}
+100%{transform:translateY(0px) rotate(-2deg)}
+}
 
-    .manifest-card:hover {
+.nav-btn{
+padding:16px 34px;
+border-radius:999px;
+font-weight:700;
+transition:.35s ease;
+}
 
-      transform:
-      translateY(-10px)
-      scale(1.02);
+.nav-btn:hover{
+transform:translateY(-4px);
+}
 
-      box-shadow:
-      0 25px 45px rgba(185,28,28,.18);
+.white-btn{
+background:white;
+color:#8b0000;
+}
 
-      border:
-      1px solid rgba(185,28,28,.18);
+.border-btn{
+border:2px solid white;
+color:white;
+}
 
-    }
+.yellow-btn:hover{
+background:#ffd000;
+transform:translateY(-4px);
+color:white
+}
 
-    .poster-img {
-      transition: .35s ease;
-    }
+.social-icon{
+width:58px;
+height:58px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+transition:.35s ease;
+}
 
-    .poster-img:hover {
-      transform: scale(1.03);
-    }
+.social-icon:hover{
+transform:translateY(-4px) scale(1.08);
+}
 
-    .id-card {
+.stats-bar{
+background:linear-gradient(90deg,#8b0000,#b40000,#8b0000);
+backdrop-filter:blur(10px);
+}
 
-      width: 370px;
+.stat-box{
+border-right:1px solid rgba(255,255,255,.18);
+}
 
-      min-height: 480px;
+.manifest-card{
+transition:.35s ease;
+}
 
-      background:
-      linear-gradient(
-      135deg,
-      #7f1d1d,
-      #b91c1c,
-      #dc2626
-      );
+.manifest-card:hover{
+transform:translateY(-8px);
+}
 
-      color: white;
+.red-panel{
+background:
+linear-gradient(135deg,#9f0000,#d10000,#7c0000);
+border-radius:26px;
+box-shadow:
+0 20px 50px rgba(0,0,0,.25),
+inset 0 0 30px rgba(255,255,255,.08);
+}
 
-      border-radius: 28px;
+.id-card{
+background:
+linear-gradient(rgba(120,0,0,.82),rgba(120,0,0,.82)),
+url('./IMG-20260527-WA0001.jpg');
 
-      padding: 24px;
+background-size:cover;
+background-position:center;
 
-      position: relative;
+border:1px solid rgba(255,255,255,.15);
 
-      overflow: hidden;
+box-shadow:
+0 25px 60px rgba(0,0,0,.4);
 
-      box-shadow:
-      0 25px 50px rgba(0,0,0,.28);
+}
 
-      border:
-      1px solid rgba(255,255,255,.15);
+input,textarea,select{
+outline:none;
+transition:.3s ease;
+}
 
-      backdrop-filter:
-      blur(12px);
+input:focus,
+textarea:focus,
+select:focus{
+box-shadow:0 0 0 4px rgba(255,190,11,.25);
+}
 
-    }
+@media(max-width:768px){
 
-    .id-card::before {
+.floating-flag{
+width:220px;
+right:-20px;
+top:100px;
+}
 
-      content: '';
+.hero-title{
+font-size:70px !important;
+line-height:.95;
+}
 
-      position: absolute;
+}
 
-      inset: 0;
-
-      background-image: url('IMG-20260527-WA0001.jpg');
-
-      background-repeat: no-repeat;
-
-      background-position: center;
-
-      background-size: 70%;
-
-      opacity: .08;
-
-      transform: rotate(-12deg);
-
-    }
-
-    .id-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    button {
-      transition: all .3s ease;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero-bg {
-
-      background:
-      linear-gradient(
-      135deg,
-      #7f1d1d,
-      #991b1b,
-      #dc2626
-      );
-
-    }
-
-  </style>
+</style>
 
 </head>
 
-<body class="bg-gradient-to-br from-slate-50 via-red-50 to-slate-100 text-slate-800">
-
-<!-- FLOATING BACKGROUND -->
-
-<div class="fixed inset-0 -z-10 overflow-hidden">
-
-  <div class="absolute top-0 left-0 w-96 h-96 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-
-  <div class="absolute top-40 right-0 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-
-  <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-
-</div>
+<body>
 
 <!-- HEADER -->
 
-<header id="home"
-class="sticky top-0 z-50 bg-red-950 text-white shadow-lg">
+<header class="top-header sticky top-0 z-50">
 
-  <div class="max-w-7xl mx-auto px-4 py-4">
+<div class="max-w-7xl mx-auto px-6 py-5 flex flex-col xl:flex-row items-center justify-between gap-6">
 
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<!-- LOGO -->
 
-      <a href="#home"
-      class="flex items-center gap-4">
+<div class="flex items-center gap-5">
 
-      <img src="IMG-20260527-WA0001.jpg"
-      class="w-16 h-16 rounded-full bg-white p-1">
+<div class="w-24 h-24 rounded-full bg-white overflow-hidden border-4 border-white shadow-2xl">
+<img src="IMG-20260527-WA0001.jpg" class="w-full h-full object-cover">
+</div>
 
-      <div>
+<div>
+<h1 class="text-6xl text-white leading-none font-bold">
+COMRADES
+</h1>
 
-        <h1 class="text-2xl md:text-3xl font-extrabold uppercase">
-          Comrades of the Commoners
-        </h1>
+<h2 class="text-3xl text-white leading-none mt-2">
+OF THE COMMONERS
+</h2>
 
-        <p class="text-red-200 text-sm">
-          Transparent Governance • Sustainable Villages
-        </p>
-
-      </div>
-
-    </a>
-
-    <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK"
-    target="_blank"
-    class="bg-green-500 px-5 py-3 rounded-full font-bold hover:bg-green-400">
-
-    Join WhatsApp Group
-
-  </a>
+<p class="text-yellow-400 text-2xl mt-3 font-semibold">
+Together We Rise
+</p>
+</div>
 
 </div>
 
-<div class="glass rounded-2xl mt-4 p-4 text-center">
+<!-- NAV -->
 
-  <p class="font-semibold">
+<div class="flex flex-wrap justify-center gap-2">
 
-    Let us set aside our political differences and 
-    come together as one united community to work for the development of our village.
+<a href="#manifesto" class="nav-btn white-btn">
+View Manifesto
+</a>
 
-  </p>
+<a href="#volunteer" class="nav-btn white-btn">
+Become Volunteer
+</a>
 
-  <p class="mt-2 text-red-100">
+<a href="#suggestions" class="nav-btn white-btn">
+Suggestions
+</a>
 
-    మన రాజకీయ సిద్ధాంత విభేదాలు పక్కన పెట్టి,
-    మన గ్రామ అభివృద్ధి కోసం ఏకమవుదాం.
+</div>
 
-  </p>
+<!-- SOCIAL -->
+
+<div class="flex items-center gap-4">
+
+<p class="text-white text-xl font-semibold mr-2">
+Follow Us:
+</p>
+
+<a href="https://chat.whatsapp.com/YOUR_LINK"
+target="_blank"
+class="social-icon bg-green-500 text-white">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<a href="https://instagram.com/YOUR_USERNAME"
+target="_blank"
+class="social-icon bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-400 text-white">
+<i class="fab fa-instagram"></i>
+</a>
 
 </div>
 
@@ -240,390 +269,329 @@ class="sticky top-0 z-50 bg-red-950 text-white shadow-lg">
 
 <!-- HERO -->
 
-<section class="hero-bg text-white px-6 py-28 relative overflow-hidden">
+<section class="hero-section">
 
-  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+<div class="hero-overlay"></div>
 
-    <div class="fade-up">
+<!-- FLOATING FLAG -->
 
-      <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
+<div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
 
-        Our Village <br>
-        Our Responsibility <br>
-        Our Future
+<div class="grid lg:grid-cols-2 gap-10 items-center">
 
-      </h2>
+<!-- LEFT -->
 
-      <p class="mt-6 text-xl text-red-100 leading-relaxed">
+<div>
 
-        A public awareness movement for
-        transparency, accountability,
-        digital villages, sustainability,
-        and youth-driven development.
+<h1 class="hero-title text-[80px] leading-[0.88] text-red-500 font-bold">
+TOGETHER
+<br>
+WE RISE
+</h1>
 
-      </p>
+<p class="text-2xl mt-8 font-medium text-black">
 
-      <div class="mt-8 flex flex-wrap gap-4">
 
-        <a href="#manifesto"
-        class="bg-white text-red-900 px-6 py-3 rounded-full font-bold">
+మన రాజకీయ సిద్ధాంత విభేదాలు పక్కన పెట్టి,
+మన గ్రామ అభివృద్ధి కోసం ఏకమవుదాం.
+<br>
+Let us set aside our political differences and come together as one united community to work for the development of our village.
+</p>
 
-        View Manifesto
+<div class="flex flex-wrap gap-5 mt-6">
 
-      </a>
-
-      <a href="#volunteer"
-      class="border border-white px-6 py-3 rounded-full font-bold">
-
-      Become Volunteer
-
-    </a>
-
-  </div>
-
-</div>
-
-<div class="grid grid-cols-2 gap-4 fade-up">
-
-  <div class="glass rounded-3xl p-6">
-
-    <h3 class="text-4xl font-black">15+</h3>
-
-    <p class="mt-2 text-red-100">
-      Development Agendas
-    </p>
-
-  </div>
-
-  <div class="glass rounded-3xl p-6">
-
-    <h3 class="text-4xl font-black">100%</h3>
-
-    <p class="mt-2 text-red-100">
-      Public Accountability
-    </p>
-
-  </div>
 
 </div>
 
 </div>
 
-</section>
+</div>
 
-<!-- MANIFESTO -->
+</div>
 
-<section id="manifesto"
-class="max-w-7xl mx-auto py-20 px-6">
+<!-- STATS -->
 
-<h2 class="text-5xl font-extrabold text-center text-red-950 mb-14 fade-up">
+<div class="stats-bar absolute bottom-0 left-0 right-0">
 
-  Our Manifesto
+<div class="min-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 text-white">
 
-</h2>
+<div class="stat-box p-8 flex items-center gap-5">
+<i class="fas fa-user-group text-2xl"></i>
+<div>
+<h2 class="text-2xl font-bold">+</h2>
+<p class="text-xl">Active Volunteers</p>
+</div>
+</div>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="stat-box p-8 flex items-center gap-5">
+<i class="fas fa-file-lines text-2xl"></i>
+<div>
+<h3 class="text-2xl font-bold">15+</h3>
+<p class="text-xl">Development Agendas</p>
+</div>
+</div>
 
-  <!-- CARD -->
+<div class="stat-box p-8 flex items-center gap-5">
+<i class="fas fa-bullseye text-2xl"></i>
+<div>
+<h3 class="text-2xl font-bold">100%</h3>
+<p class="text-xl">Public Accountability</p>
+</div>
+</div>
 
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Transparent Public Funds
-    </h3>
-    <p>
-      Public dashboard displaying funds received,
-      utilised, pending works and bills.
-    </p>
-  </div>
+<div class="p-8 flex items-center gap-5">
+<i class="fas fa-shield-halved text-2xl"></i>
+<div>
+<h3 class="text-2xl font-bold">100%</h3>
+<p class="text-xl">Transparency</p>
+</div>
+</div>
 
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Solar Street Lights
-    </h3>
-    <p>
-      Solar-powered lighting systems for
-      cost-effective public infrastructure.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Solar Water Pumps
-    </h3>
-    <p>
-      Sustainable water pumping systems
-      with reduced maintenance dependency.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Drainage Maintenance
-    </h3>
-    <p>
-      Regular cleaning and desilting of
-      blocked drainage canals.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      RainWater Harvesting ponds
-    </h3>
-    <p>
-      Construct Rianwater harvest ponds to filter and store
-      RainWater to reduce groundwater dependency and reduce load/cost on waterpump motors
-      
-    </p>
-  </div>
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      RainWater Harvesting ponds
-    </h3>
-    <p>
-      Construction of Rianwater harvest ponds
-      to reduce groundwater dependency and reduce load/cost on waterpump motors.
-      Mandate newly constructing house to setup rainwater harvest ponds to utilise
-      for their domestic purposes, that will reduce pressureload on panchayathi waterpumps
-    
-      
-    </p>
-  </div>
-  
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Regular Water Supply
-    </h3>
-    <p>
-      Transparent schedules and reliable
-      water distribution systems.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Pump Repair Transparency
-    </h3>
-    <p>
-      Public records for watermotor repairs,lights
-      spare parts and other maintenance expenses.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Scientific Waste Management
-    </h3>
-    <p>
-      Waste segregation, recycling and
-      clean village initiatives.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Public Parks & Open Gym
-    </h3>
-    <p>
-      Walking lanes, outdoor fitness zones
-      and children play areas.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Public WiFi & E-Library
-    </h3>
-    <p>
-      Digital learning spaces and internet
-      access for youth and students.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Women Safety CCTV
-    </h3>
-    <p>
-      Surveillance systems for safer public
-      areas and streets.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Speed Detection Cameras
-    </h3>
-    <p>
-      Accident prevention and traffic
-      safety monitoring.
-    </p>
-  </div>
-
-  <div class="manifest-card rounded-3xl p-6 fade-up">
-    <h3 class="text-2xl font-bold text-red-800 mb-3">
-      Digital Transparency Dashboard
-    </h3>
-    <p>
-      Display Public project tracking and
-      accountability platform to show funds utilisation
-      to avoid scams,frauds and fake bills
-    </p>
-  </div>
+</div>
 
 </div>
 
 </section>
 
-<!-- SUGGESTIONS -->
+<!-- MANIFESTO + SUGGESTIONS -->
 
-<section class="bg-white py-20 px-6">
+<section class="grid grid-cols-1 lg:grid-cols-2">
 
-  <div class="max-w-5xl mx-auto">
+  <!-- MANIFESTO -->
 
-    <h2 class="text-4xl font-extrabold text-center text-red-950 mb-10 fade-up">
+  <div id="manifesto" class="bg-white px-6 md:px-10 py-10">
 
-      Public Development Suggestions
-
+    <h2 class="text-center text-red-700 text-4xl md:text-6xl font-bold mb-10">
+      OUR MANIFESTO
     </h2>
 
-    <div class="bg-slate-50 rounded-3xl p-8 shadow-lg fade-up">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
 
-      <div class="grid md:grid-cols-2 gap-4">
+      <div class="manifest-card">
+        <i class="fas fa-scale-balanced text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Transparent Public Funds
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-lightbulb text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Solar Street Lights
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-faucet-drip text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Solar Water Pumps
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-water text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Drainage Maintenance
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-cloud-rain text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Rainwater Harvesting
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-faucet text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Regular Water Supply
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-screwdriver-wrench text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Pump Repair Transparency
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-recycle text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Waste Management
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-tree-city text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Parks & Open Gym
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-wifi text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Public WiFi & E-Library
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-video text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Women Safety CCTV
+        </p>
+      </div>
+
+      <div class="manifest-card">
+        <i class="fas fa-gauge-high text-4xl md:text-5xl text-red-700"></i>
+        <p class="font-semibold mt-4 text-sm md:text-base">
+          Speed Detection Cameras
+        </p>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-10">
+
+      <button class="bg-red-800 hover:bg-red-700 text-white px-8 py-3 rounded-full font-bold transition">
+        View All Agendas →
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- PUBLIC SUGGESTIONS -->
+
+  <div id="suggestions"
+  class="red-panel px-6 md:px-10 py-10 text-white">
+
+    <h2 class="text-center text-4xl md:text-6xl font-bold mb-10">
+      PUBLIC SUGGESTIONS
+    </h2>
+
+    <div class="space-y-5">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
         <input id="suggestionName"
         type="text"
         placeholder="Your Name"
-        class="p-4 rounded-xl border">
+        class="p-4 md:p-5 rounded-xl text-black">
 
         <input id="suggestionMobile"
         type="text"
         placeholder="Mobile Number"
-        class="p-4 rounded-xl border">
+        class="p-4 md:p-5 rounded-xl text-black">
 
       </div>
 
       <input id="suggestionVillage"
       type="text"
       placeholder="Village / Area"
-      class="w-full mt-4 p-4 rounded-xl border">
+      class="w-full p-4 md:p-5 rounded-xl text-black">
 
-      <select id="suggestionCategory"
-      class="w-full mt-4 p-4 rounded-xl border">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-      <option>Complaint/suggestion</option>
-      <option>Water Supply</option>
-      <option>Roads</option>
-      <option>Drainage</option>
-      <option>Street Lights</option>
-      <option>Sanitation</option>
-      <option>Safety</option>
-      <option>Other</option>
+        <select id="suggestionCategory"
+        class="p-4 md:p-5 rounded-xl text-black">
 
-    </select>
+          <option>Category</option>
+          <option>Water Supply</option>
+          <option>Roads</option>
+          <option>Drainage</option>
+          <option>Street Lights</option>
+          <option>Sanitation</option>
 
-    <textarea id="suggestionText"
-    rows="5"
-    placeholder="Write your suggestion..."
-    class="w-full mt-4 p-4 rounded-xl border"></textarea>
+        </select>
 
-    <button onclick="submitSuggestion()"
-    class="mt-6 bg-red-900 text-white px-8 py-3 rounded-full font-bold">
+        <textarea id="suggestionText"
+        rows="6"
+        placeholder="Write your suggestion..."
+        class="p-4 md:p-5 rounded-xl text-black"></textarea>
 
-    Submit Suggestion
+        <input
+        id="suggestionPhoto"
+        type="file"
+        accept="image/*"
+        class="w-full p-4 rounded-xl text-black bg-white border border-gray-300">
 
-  </button>
+      </div>
 
-</div>
+      <button
+      onclick="submitSuggestion()"
+      class="w-full bg-yellow-400 text-black text-lg md:text-2xl font-bold py-4 md:py-5 rounded-xl hover:bg-yellow-300 transition">
 
-</div>
+        <i class="fas fa-paper-plane mr-2"></i>
+
+        Submit Suggestion
+
+      </button>
+
+    </div>
+
+  </div>
 
 </section>
 
 <!-- VOLUNTEER -->
 
-<section id="volunteer"
-class="bg-red-950 text-white py-20 px-6">
+<section id="volunteer" class="grid lg:grid-cols-2 bg-gradient-to-r from-[#890000] to-[#b10000] text-white">
 
-<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10">
+<!-- FORM -->
 
-  <!-- FORM -->
+<div class="p-10">
 
-  <div class="fade-up">
+<h2 class="text-center text-6xl font-bold mb-10">
+VOLUNTEER REGISTRATION
+</h2>
 
-    <h2 class="text-5xl font-extrabold mb-10">
+<div class="space-y-4">
 
-      Volunteer Registration
+<div class="grid md:grid-cols-2 gap-4">
+<input id="name" type="text" placeholder="Full Name" class="p-5 rounded-xl text-black">
+<input id="designation" type="text" value="Comrade" class="p-5 rounded-xl text-black">
+</div>
 
-    </h2>
+<div class="grid grid-cols-3 gap-4">
+<input id="age" type="number" placeholder="Age" class="p-5 rounded-xl text-black">
+<select id="gender" class="p-5 rounded-xl text-black">
+<option>Gender</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+<select id="blood" class="p-5 rounded-xl text-black">
+<option>Blood Group</option>
+<option>O+</option>
+<option>o+</option>
+<option>A+</option>
+<option>B-</option>
+<option>B+</option>
+<option>B-</option>
+<option>AB+</option>
+<option>AB-</option>
 
-    <div class="space-y-4 bg-white/10 p-8 rounded-3xl">
 
-      <input id="name"
-      type="text"
-      placeholder="Full Name"
-      class="w-full p-4 rounded-xl text-black">
 
-      <input id="designation"
-      type="text"
-      value="Comrade"
-      class="w-full p-4 rounded-xl text-black">
+</select>
+</div>
 
-      <input id="age"
-      type="number"
-      placeholder="Age"
-      class="w-full p-4 rounded-xl text-black">
+<input id="mobile" type="text" placeholder="Mobile Number" class="w-full p-5 rounded-xl text-black">
 
-      <select id="gender"
-      class="w-full p-4 rounded-xl text-black">
+<div class="grid md:grid-cols-2 gap-4">
+<select id="location" class="p-5 rounded-xl text-black">
+<option>Chilamakur panchayathi, yerraguntla(m),kadapa(D),AndhraPradesh-516310</option>
+<option>Chirrajupalle panchayathi, yerraguntla(m),kadapa(D),AndhraPradesh-516310</option>
+</select>
 
-      <option>Male</option>
-      <option>Female</option>
-      <option>Other</option>
+<input id="photo" type="file" accept="image/*" class="p-5 rounded-xl bg-white text-black">
+</div>
 
-    </select>
-
-    <input id="blood"
-    type="text"
-    placeholder="Blood Group"
-    class="w-full p-4 rounded-xl text-black">
-
-    <input id="mobile"
-    type="tel"
-    placeholder="Mobile Number"
-    class="w-full p-4 rounded-xl text-black">
-
-    <!-- LOCATION -->
-
-    <select id="location"
-    class="w-full p-4 rounded-xl text-black">
-
-    <option>
-      Chilamkur Panchayati,
-      Yerraguntla(M),
-      Kadapa(D),
-      Andhra Pradesh - 516310
-    </option>
-
-    <option>
-      Chirrajupalle Panchayati,
-      Yerraguntla(M),
-      Kadapa(D),
-      Andhra Pradesh - 516310
-    </option>
-
-  </select>
-
-  <input id="photo"
-  type="file"
-  accept="image/*"
-  class="w-full p-4 rounded-xl bg-white text-black">
-
-  <button onclick="generateID()"
-  class="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold">
-
-  Generate Volunteer ID
-
+<button onclick="generateID()" class="w-full bg-yellow-400 text-black text-2xl font-bold py-5 rounded-xl">
+<i class="fas fa-id-card mr-2"></i>
+Generate Volunteer ID Card
 </button>
 
 </div>
@@ -632,69 +600,54 @@ class="bg-red-950 text-white py-20 px-6">
 
 <!-- ID CARD -->
 
-<div class="flex justify-center items-start fade-up">
+<div class="p-10 flex flex-col items-center justify-center gap-8">
 
-  <div id="idCard"
-  class="id-card hidden">
+<h2 class="text-center text-5xl font-bold">
+VOLUNTEER ID CARD PREVIEW
+</h2>
 
-  <div class="id-content">
+<div id="idCard" class="id-card w-full max-w-xl rounded-3xl p-8 relative overflow-hidden">
 
-    <div class="flex items-center gap-4 mb-5">
+<div class="relative z-10">
 
-      <img src="IMG-20260527-WA0001.jpg"
-      class="w-16 h-16 rounded-full bg-white p-1">
+<div class="flex items-center gap-5 mb-8">
 
-      <div>
+<div class="w-20 h-20 rounded-full bg-white overflow-hidden">
+<img src="IMG-20260527-WA0001.jpg" class="w-full h-full object-cover">
+</div>
 
-        <h3 class="font-bold text-xl uppercase">
-          Comrades of the Commoners
-        </h3>
+<div>
+<h3 class="text-5xl font-bold leading-none">COMRADES</h3>
+<p class="text-2xl font-semibold">OF THE COMMONERS</p>
+<p class="text-yellow-400 text-xl mt-1">VOLUNTEER ID CARD</p>
+</div>
 
-        <p class="text-sm">
-          Volunteer ID Card
-        </p>
+</div>
 
-      </div>
+<div class="flex gap-6 items-start">
 
-    </div>
+<img id="previewPhoto" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="w-40 h-40 rounded-xl object-cover bg-white">
 
-    <div class="flex gap-4">
-
-      <img id="previewPhoto"
-      class="w-24 h-24 rounded-2xl object-cover border-2 border-white">
-
-      <div class="space-y-2 text-sm leading-6">
-
-        <p><strong>Name:</strong> <span id="cardName"></span></p>
-
-        <p><strong>Designation:</strong> <span id="cardDesignation"></span></p>
-
-        <p><strong>Age:</strong> <span id="cardAge"></span></p>
-
-        <p><strong>Gender:</strong> <span id="cardGender"></span></p>
-
-        <p><strong>Blood Group:</strong> <span id="cardBlood"></span></p>
-
-        <p><strong>Mobile:</strong> <span id="cardMobile"></span></p>
-
-        <p><strong>Location:</strong> <span id="cardLocation"></span></p>
-
-      </div>
-
-    </div>
-
-    <button onclick="downloadID()"
-    class="mt-8 bg-white text-red-900 w-full py-3 rounded-full font-bold">
-
-    Download ID Card
-
-  </button>
+<div class="space-y-3 text-xl">
+<p><b>Name :</b> <span id="cardName">Your Name</span></p>
+<p><b>Designation :</b> <span id="cardDesignation">Comrade</span></p>
+<p><b>Age :</b> <span id="cardAge">25</span></p>
+<p><b>Gender :</b> <span id="cardGender">Male</span></p>
+<p><b>Blood Group :</b> <span id="cardBlood">O+</span></p>
+<p><b>Mobile :</b> <span id="cardMobile">9876543210</span></p>
+<p><b>Location :</b> <span id="cardLocation">Your Location</span></p>
+</div>
 
 </div>
 
 </div>
 
 </div>
+
+<button onclick="downloadID()" class="bg-white text-red-900 px-10 py-5 rounded-xl font-bold text-2xl shadow-2xl">
+<i class="fas fa-download mr-2"></i>
+Download ID Card
+</button>
 
 </div>
 
@@ -702,21 +655,26 @@ class="bg-red-950 text-white py-20 px-6">
 
 <!-- FOOTER -->
 
-<footer class="bg-black text-white text-center py-10">
+<footer class="bg-black text-white py-6 px-8 flex flex-col md:flex-row justify-between items-center text-center gap-5">
 
-  <h3 class="text-3xl font-extrabold uppercase">
+<div class="flex items-center gap-4">
+<img src="IMG-20260527-WA0001.jpg" class="w-16 h-16 rounded-full">
+<div>
+<h3 class="text-3xl font-bold">COMRADES OF THE COMMONERS</h3>
+<p>Development with Transparency & Accountability</p>
+</div>
+</div>
 
-    Comrades of the Commoners
+<h3 class="text-yellow-400 text-4xl font-bold">
+Together We Rise
+</h3>
 
-  </h3>
-
-  <p class="text-gray-400 mt-3">
-
-    Development with Transparency & Accountability
-
-  </p>
+<p class="text-xl">
+© 2026 All Rights Reserved
+</p>
 
 </footer>
+
 
 <!-- JAVASCRIPT -->
 
@@ -742,6 +700,8 @@ async function postToGoogleSheet(data) {
   return response.text();
 
 }
+
+<script>
 
 async function submitSuggestion() {
 
@@ -771,22 +731,79 @@ async function submitSuggestion() {
 
   try {
 
-    await postToGoogleSheet(data);
+    // GET PHOTO INPUT
+    const photoInput =
+    document.getElementById('suggestionPhoto');
 
-    alert('Suggestion submitted successfully');
+    // IF PHOTO SELECTED
+    if(photoInput.files[0]) {
 
-    document.getElementById('suggestionName').value = '';
-    document.getElementById('suggestionMobile').value = '';
-    document.getElementById('suggestionVillage').value = '';
-    document.getElementById('suggestionText').value = '';
+      const reader =
+      new FileReader();
 
-  } catch(error) {
+      reader.onload =
+      async function(e) {
+
+        // IMPORTANT LINE
+        data.photoBase64 =
+        e.target.result;
+
+        // SEND DATA
+        await postToGoogleSheet(data);
+
+        alert('Suggestion submitted successfully');
+
+        clearSuggestionForm();
+
+      };
+
+      // READ IMAGE
+      reader.readAsDataURL(
+      photoInput.files[0]
+      );
+
+    }
+
+    else {
+
+      // WITHOUT PHOTO
+      await postToGoogleSheet(data);
+
+      alert('Suggestion submitted successfully');
+
+      clearSuggestionForm();
+
+    }
+
+  }
+
+  catch(error) {
+
+    console.error(error);
 
     alert('Error submitting suggestion');
 
   }
 
 }
+
+// CLEAR FORM
+function clearSuggestionForm(){
+
+  document.getElementById('suggestionName').value = '';
+
+  document.getElementById('suggestionMobile').value = '';
+
+  document.getElementById('suggestionVillage').value = '';
+
+  document.getElementById('suggestionText').value = '';
+
+  document.getElementById('suggestionPhoto').value = '';
+
+}
+
+</script>
+
 
 async function generateID() {
 
