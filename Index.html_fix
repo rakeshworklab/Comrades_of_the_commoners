@@ -701,8 +701,6 @@ async function postToGoogleSheet(data) {
 
 }
 
-<script>
-
 async function submitSuggestion() {
 
   const data = {
@@ -801,8 +799,6 @@ function clearSuggestionForm(){
   document.getElementById('suggestionPhoto').value = '';
 
 }
-
-</script>
 
 
 async function generateID() {
