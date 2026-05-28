@@ -512,6 +512,12 @@ Let us set aside our political differences and come together as one united commu
         placeholder="Write your suggestion..."
         class="p-4 md:p-5 rounded-xl text-black"></textarea>
 
+        <input
+        id="suggestionPhoto"
+        type="file"
+        accept="image/*"
+        class="w-full p-4 rounded-xl text-black bg-white border border-gray-300">
+
       </div>
 
       <button
@@ -559,8 +565,16 @@ VOLUNTEER REGISTRATION
 <select id="blood" class="p-5 rounded-xl text-black">
 <option>Blood Group</option>
 <option>O+</option>
+<option>o+</option>
 <option>A+</option>
+<option>B-</option>
 <option>B+</option>
+<option>B-</option>
+<option>AB+</option>
+<option>AB-</option>
+
+
+
 </select>
 </div>
 
@@ -568,7 +582,8 @@ VOLUNTEER REGISTRATION
 
 <div class="grid md:grid-cols-2 gap-4">
 <select id="location" class="p-5 rounded-xl text-black">
-<option>Location / Area</option>
+<option>Chilamakur panchayathi, yerraguntla(m),kadapa(D),AndhraPradesh-516310</option>
+<option>Chirrajupalle panchayathi, yerraguntla(m),kadapa(D),AndhraPradesh-516310</option>
 </select>
 
 <input id="photo" type="file" accept="image/*" class="p-5 rounded-xl bg-white text-black">
@@ -686,6 +701,8 @@ async function postToGoogleSheet(data) {
 
 }
 
+<script>
+
 async function submitSuggestion() {
 
   const data = {
@@ -714,22 +731,79 @@ async function submitSuggestion() {
 
   try {
 
-    await postToGoogleSheet(data);
+    // GET PHOTO INPUT
+    const photoInput =
+    document.getElementById('suggestionPhoto');
 
-    alert('Suggestion submitted successfully');
+    // IF PHOTO SELECTED
+    if(photoInput.files[0]) {
 
-    document.getElementById('suggestionName').value = '';
-    document.getElementById('suggestionMobile').value = '';
-    document.getElementById('suggestionVillage').value = '';
-    document.getElementById('suggestionText').value = '';
+      const reader =
+      new FileReader();
 
-  } catch(error) {
+      reader.onload =
+      async function(e) {
+
+        // IMPORTANT LINE
+        data.photoBase64 =
+        e.target.result;
+
+        // SEND DATA
+        await postToGoogleSheet(data);
+
+        alert('Suggestion submitted successfully');
+
+        clearSuggestionForm();
+
+      };
+
+      // READ IMAGE
+      reader.readAsDataURL(
+      photoInput.files[0]
+      );
+
+    }
+
+    else {
+
+      // WITHOUT PHOTO
+      await postToGoogleSheet(data);
+
+      alert('Suggestion submitted successfully');
+
+      clearSuggestionForm();
+
+    }
+
+  }
+
+  catch(error) {
+
+    console.error(error);
 
     alert('Error submitting suggestion');
 
   }
 
 }
+
+// CLEAR FORM
+function clearSuggestionForm(){
+
+  document.getElementById('suggestionName').value = '';
+
+  document.getElementById('suggestionMobile').value = '';
+
+  document.getElementById('suggestionVillage').value = '';
+
+  document.getElementById('suggestionText').value = '';
+
+  document.getElementById('suggestionPhoto').value = '';
+
+}
+
+</script>
+
 
 async function generateID() {
 
